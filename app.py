@@ -1,8 +1,14 @@
+import os
 from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 
+if os.environ.get('DATABASE_URL') is None:
+    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:akagami08@localhost:5432/flaskPostgres'
+else:
+    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:akagami08@localhost:5432/flaskPostgres"
+app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 db = SQLAlchemy(app)
 
 class Users(db.Model):
