@@ -3,7 +3,7 @@ from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 
 if os.environ.get('DATABASE_URL') is None:
-    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:akagami08@localhost:5432/flaskPostgres'
+    SQLALCHEMY_DATABASE_URI = 'postgres://mmrjwjfwsanysj:3ffd144041d1362720cd1aa27fad3c74256f66b99f85e4bbb0ff8eb1c50ad9ca@ec2-3-234-169-147.compute-1.amazonaws.com:5432/dbse72pe3srp6v'
 else:
     SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 
